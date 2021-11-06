@@ -1,10 +1,3 @@
------------------------------------- FIX VIEWMODELS ------------------------------------
-for i,v in pairs(game.ReplicatedStorage.Viewmodels:GetChildren()) do
-	if v:FindFirstChild("HumanoidRootPart") and v.HumanoidRootPart.Transparency ~= 1 then
-		v.HumanoidRootPart.Transparency = 1
-	end
-end
-----------------------------------------------------------------------------------------
 if game.CoreGui:FindFirstChild("pepsi.club") then
 	game.CoreGui["pepsi.club"]:Destroy()
 end
@@ -2115,12 +2108,9 @@ aH:CreateLabel("More coming soon.")
 ------------------------------------ SKINS ------------------------------------
 aG:CreateLabel("Knives")
 
-otherDropdown = aG:CreateDropdown("Other", {"Reset Viewmodels", "Unlock Inv"}, function(K)
-	if K == "Reset Viewmodels" then
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/pepsi.club/main/skins/resetviewmodels", true))()
-	elseif K == "Unlock Inv" then
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/6segs/millionware/main/inv", true))()
-	end
+otherDropdown = aG:CreateDropdown("Other", {"Unlock Inv"}, function(K)
+	     if K == "Unlock Inv" then
+	 end
 end)
 
 for B, C in next, game.Players.LocalPlayer.PlayerGui.GUI.SuitZoom:GetDescendants() do
