@@ -2278,3 +2278,4 @@ oldNewIndex = hookfunc(getrawmetatable(game.Players.LocalPlayer.PlayerGui.Client
 
 	return oldNewIndex(self, idx, val)
 end))
+-------heyo-------
