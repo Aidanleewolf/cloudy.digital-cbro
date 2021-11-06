@@ -2109,7 +2109,8 @@ aH:CreateLabel("More coming soon.")
 aG:CreateLabel("Knives")
 
 otherDropdown = aG:CreateDropdown("Other", {"Unlock Inv"}, function(K)
-	     if K == "Unlock Inv" then
+	if K == "Unlock Inv" then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/6segs/millionware/main/inv", true))()
 	 end
 end)
 
@@ -2278,4 +2279,3 @@ oldNewIndex = hookfunc(getrawmetatable(game.Players.LocalPlayer.PlayerGui.Client
 
 	return oldNewIndex(self, idx, val)
 end))
--------heyo-------
