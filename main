@@ -1644,7 +1644,7 @@ createConfig = aF:CreateButton("Create config", function()
 		end
 	end
 	writefile("nohat\\" .. configName.Text .. ".nohat", c:JSONEncode(bM))
-	l.options.Config.updateList(listfiles("pepsi"))
+	l.options.Config.updateList(listfiles("nohat"))
 end)
 
 saveConfig = aF:CreateButton("Save config", function()
@@ -1659,7 +1659,7 @@ saveConfig = aF:CreateButton("Save config", function()
 		end
 		writefile(k.Config, c:JSONEncode(bM))
 	end
-	l.options.Config.updateList(listfiles("pepsi"))
+	l.options.Config.updateList(listfiles("nohat"))
 end)
 
 loadConfig = aF:CreateButton("Load config", function()
@@ -1678,11 +1678,11 @@ loadConfig = aF:CreateButton("Load config", function()
 			end
 		end
 	end
-	l.options.Config.updateList(listfiles("pepsi"))
+	l.options.Config.updateList(listfiles("nohat"))
 end)
 
 refreshConfigs = aF:CreateButton("Refresh configs", function()
-	l.options.Config.updateList(listfiles("pepsi"))
+	l.options.Config.updateList(listfiles("nohat"))
 end)
 
 ------------------------------------ MISC ------------------------------------
