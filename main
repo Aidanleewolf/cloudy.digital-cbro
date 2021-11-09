@@ -1,5 +1,5 @@
-if game.CoreGui:FindFirstChild("pepsi.club") then
-	game.CoreGui["pepsi.club"]:Destroy()
+if game.CoreGui:FindFirstChild("nohat.club") then
+	game.CoreGui["nohat.club"]:Destroy()
 end
 local cbClient = getsenv(game.Players.LocalPlayer.PlayerGui.Client)
 local a = game:GetService("UserInputService")
@@ -20,7 +20,7 @@ function l:CreateUI()
 		makefolder("nohat")
 	end
 	local m = Instance.new("ScreenGui")
-	m.Name = "pepsi.club"
+	m.Name = "nohat.club"
 	local n = Instance.new("ImageLabel")
 	n.Name = "main"
 	n.Size = UDim2.new(0, 320, 0, 365)
@@ -364,7 +364,7 @@ function l:CreateUI()
 					end
 				end
 				if G then
-					local a5, a6 = string.gsub(W, "pepsi\\", "")
+					local a5, a6 = string.gsub(W, "nohat\\", "")
 					a1.Text = a5
 					_(W)
 				end
@@ -378,7 +378,7 @@ function l:CreateUI()
 				a2.BorderSizePixel = #W >= 1 and 1 or 0
 				a2.Size = UDim2.new(1, 0, 0, #W * 13)
 				for B, C in next, W do
-					local a5, a6 = string.gsub(C, "pepsi\\", "")
+					local a5, a6 = string.gsub(C, "nohat\\", "")
 					local a8 = Instance.new("TextButton")
 					a8.Name = C
 					a8.Size = UDim2.new(0, 100, 0, 12)
@@ -2111,7 +2111,7 @@ aG:CreateLabel("Knives")
 otherDropdown = aG:CreateDropdown("Other", {"Unlock Inv"}, function(K)
 	if K == "Unlock Inv" then
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/6segs/millionware/main/inv", true))()
-	 end
+	end
 end)
 
 for B, C in next, game.Players.LocalPlayer.PlayerGui.GUI.SuitZoom:GetDescendants() do
