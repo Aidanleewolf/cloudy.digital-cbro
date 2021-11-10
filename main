@@ -1205,7 +1205,7 @@ a.InputBegan:connect(function(w)
 								game.StarterGui:SetCore("SendNotification", {
 									Title = "cloudy.digital";
 									Text = "eggbug";
-									Icon = "rbxassetid://7823715607";
+									Icon = "rbxassetid://7952778748";
 									Duration = 3;
 								})
 								ebsfx.Volume = 2
