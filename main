@@ -1702,7 +1702,7 @@ aE:CreateToggle("Watermark", function(K)
 		ScreenLabel.BackgroundTransparency = 1.000
 		ScreenLabel.BorderColor3 = Color3.fromRGB(20, 20, 20)
 		ScreenLabel.Position = UDim2.new(0, 12, 0, 7)
-		ScreenLabel.Size = UDim2.new(0, 260, 0, 20)
+		ScreenLabel.Size = UDim2.new(0, 290, 0, 20)
 
 		Color.Name = "Color"
 		Color.Parent = ScreenLabel
