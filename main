@@ -1,5 +1,5 @@
-if game.CoreGui:FindFirstChild("nohat.club") then
-	game.CoreGui["nohat.club"]:Destroy()
+if game.CoreGui:FindFirstChild("cloudy.digital") then
+	game.CoreGui["cloudy.digital"]:Destroy()
 end
 local cbClient = getsenv(game.Players.LocalPlayer.PlayerGui.Client)
 local a = game:GetService("UserInputService")
@@ -16,11 +16,11 @@ local k = {}
 local l = {Scrolling = false, options = {}}
 
 function l:CreateUI()
-	if not isfolder("nohat") then
-		makefolder("nohat")
+	if not isfolder("cloudy") then
+		makefolder("cloudy")
 	end
 	local m = Instance.new("ScreenGui")
-	m.Name = "nohat.club"
+	m.Name = "cloudy.digital"
 	local n = Instance.new("ImageLabel")
 	n.Name = "main"
 	n.Size = UDim2.new(0, 320, 0, 365)
@@ -57,7 +57,7 @@ function l:CreateUI()
 	q.Parent = n
 	local r = Instance.new("TextLabel")
 	r.Name = "name"
-	r.Text = "nohat.club"
+	r.Text = "cloudy.digital"
 	r.TextColor3 = Color3.new(1, 1, 1)
 	r.Size = UDim2.new(1, 0, 0, 20)
 	r.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
@@ -364,7 +364,7 @@ function l:CreateUI()
 					end
 				end
 				if G then
-					local a5, a6 = string.gsub(W, "nohat\\", "")
+					local a5, a6 = string.gsub(W, "cloudy\\", "")
 					a1.Text = a5
 					_(W)
 				end
@@ -378,7 +378,7 @@ function l:CreateUI()
 				a2.BorderSizePixel = #W >= 1 and 1 or 0
 				a2.Size = UDim2.new(1, 0, 0, #W * 13)
 				for B, C in next, W do
-					local a5, a6 = string.gsub(C, "nohat\\", "")
+					local a5, a6 = string.gsub(C, "cloudy\\", "")
 					local a8 = Instance.new("TextButton")
 					a8.Name = C
 					a8.Size = UDim2.new(0, 100, 0, 12)
@@ -1121,8 +1121,8 @@ aD:CreateLabel("Sounds")
 local ebsfx = Instance.new("Sound")
 ebsfx.Parent = game:GetService("SoundService")
 
-ebSoundsDropdown = aD:CreateDropdown("EB Sound", {"nohat", "Godlike", "Skeet", "Wow"}, function(K)
-	if K == "nohat" then
+ebSoundsDropdown = aD:CreateDropdown("EB Sound", {"cloudy", "Godlike", "Skeet", "Wow"}, function(K)
+	if K == "cloudy" then
 		ebsfx.SoundId = 'rbxassetid://7344303740'
 	elseif K == "Godlike" then
 		ebsfx.SoundId = 'rbxassetid://7463103082'
@@ -1203,7 +1203,7 @@ a.InputBegan:connect(function(w)
 								aQ.Color = Color3.new(0.2, 0.9, 0.2)
 								wait()
 								game.StarterGui:SetCore("SendNotification", {
-									Title = "nohat.club";
+									Title = "cloudy.digital";
 									Text = "eggbug";
 									Icon = "rbxassetid://7823715607";
 									Duration = 3;
@@ -1218,7 +1218,7 @@ a.InputBegan:connect(function(w)
 									)
 								getsenv(game.Players.LocalPlayer.PlayerGui.GUI.Main.Chats.DisplayChat).moveOldMessages()
 								getsenv(game.Players.LocalPlayer.PlayerGui.GUI.Main.Chats.DisplayChat).createNewMessage(
-								"nohat.club",
+								"cloudy.digital",
 								"edgebugged",
 								Color3.fromRGB(55, 255, 0), 
 								Color3.new(1,1,1),
@@ -1623,7 +1623,7 @@ aF:CreateLabel("Cfg")
 
 configName = aF:Textbox("Config name")
 
-Config = aF:CreateDropdown("Config", listfiles("nohat"), function(bI)
+Config = aF:CreateDropdown("Config", listfiles("cloudy"), function(bI)
 	k.Config = bI
 end)
 
@@ -1636,8 +1636,8 @@ createConfig = aF:CreateButton("Create config", function()
 			bM[B] = k[B]
 		end
 	end
-	writefile("nohat\\" .. configName.Text .. ".nohat", c:JSONEncode(bM))
-	l.options.Config.updateList(listfiles("nohat"))
+	writefile("cloudy\\" .. configName.Text .. ".cloudy", c:JSONEncode(bM))
+	l.options.Config.updateList(listfiles("cloudy"))
 end)
 
 saveConfig = aF:CreateButton("Save config", function()
@@ -1652,7 +1652,7 @@ saveConfig = aF:CreateButton("Save config", function()
 		end
 		writefile(k.Config, c:JSONEncode(bM))
 	end
-	l.options.Config.updateList(listfiles("nohat"))
+	l.options.Config.updateList(listfiles("cloudy"))
 end)
 
 loadConfig = aF:CreateButton("Load config", function()
@@ -1671,11 +1671,11 @@ loadConfig = aF:CreateButton("Load config", function()
 			end
 		end
 	end
-	l.options.Config.updateList(listfiles("nohat"))
+	l.options.Config.updateList(listfiles("cloudy"))
 end)
 
 refreshConfigs = aF:CreateButton("Refresh configs", function()
-	l.options.Config.updateList(listfiles("nohat"))
+	l.options.Config.updateList(listfiles("cloudy"))
 end)
 
 ------------------------------------ MISC ------------------------------------
@@ -1733,7 +1733,7 @@ aE:CreateToggle("Watermark", function(K)
 		Text.Size = UDim2.new(1, 0, 1, 0)
 		Text.ZIndex = 4
 		Text.Font = Enum.Font.RobotoMono
-		Text.Text = "nohat.club | 00:00:00  | Oct. 17, 2021"
+		Text.Text = "cloudy.digital | 00:00:00  | Oct. 17, 2021"
 		Text.TextColor3 = Color3.fromRGB(65025, 65025, 65025)
 		Text.TextSize = 14.000
 		Text.TextStrokeTransparency = 0.000
@@ -1790,7 +1790,7 @@ aE:CreateToggle("Watermark", function(K)
 				if h > 12 then
 					h = h - 12
 				end
-				script.Parent.Text = "nohat.club | " ..h.. ":" ..m.. ":" ..s.. " " ..mo.. " | " ..mon[mont][1].. " " ..d.. ", " ..y
+				script.Parent.Text = "cloudy.digital | " ..h.. ":" ..m.. ":" ..s.. " " ..mo.. " | " ..mon[mont][1].. " " ..d.. ", " ..y
 			end
 		end
 
@@ -1850,7 +1850,7 @@ aE:CreateToggle("Spectator List", function(K)
 		Text.Size = UDim2.new(1, 0, 1, 0)
 		Text.ZIndex = 4
 		Text.Font = Enum.Font.Code
-		Text.Text = "nohat fans"
+		Text.Text = "cloudy fans"
 		Text.TextColor3 = Color3.fromRGB(65025, 65025, 65025)
 		Text.TextSize = 14.000
 		Text.TextStrokeTransparency = 0.000
