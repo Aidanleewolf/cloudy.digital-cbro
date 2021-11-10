@@ -68,7 +68,7 @@ name.BackgroundTransparency = 1.000
 name.Position = UDim2.new(0.0226537213, 0, 0.0303030312, 0)
 name.Size = UDim2.new(0.249190941, 0, 1, 0)
 name.Font = Enum.Font.Code
-name.Text = "nohat.club"
+name.Text = "cloudy.digital"
 name.TextColor3 = Color3.fromRGB(210, 210, 210)
 name.TextSize = 16.000
 name.TextStrokeTransparency = 0.000
@@ -268,7 +268,7 @@ loadbutton.Text = ""
 loadbutton.TextColor3 = Color3.fromRGB(0, 0, 0)
 loadbutton.TextSize = 14.000
 loadbutton.MouseButton1Click:Connect(function()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/Aidanleewolf/nohat.club-cbro/main/main", true))()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/Aidanleewolf/cloudy.digital-cbro/main/main", true))()
 	game.CoreGui.loader:Destroy()
 end)
 
