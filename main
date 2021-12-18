@@ -2410,25 +2410,25 @@ aG:CreateLabel("Knives")
 
 meleeDropdown = aG:CreateDropdown("Custom Melee", {"Shadow Daggers", "Talon", "$19 Fortnite Card", "RemRem", "Skeleton", "Bowie", "Diamond Pickaxe", "Classic", "Valor", "Hook"}, function(K)
 	if K == "Shadow Daggers" then
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/cloudy.digital/main/skins/shadowdaggers", true))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/pepsi.club/main/skins/shadowdaggers", true))()
 	elseif K == "Talon" then
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/cloudy.digital/main/skins/talon", true))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/pepsi.club/main/skins/talon", true))()
 	elseif K == "$19 Fortnite Card" then
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/cloudy.digital/main/skins/fortnitecard", true))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/pepsi.club/main/skins/fortnitecard", true))()
 	elseif K == "RemRem" then
 		loadstring(game:HttpGet("https://pastebin.com/raw/0V9dNtNM", true))()
 	elseif K == "Skeleton" then
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/cloudy.digital/main/skins/skeleton", true))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/pepsi.club/main/skins/skeleton", true))()
 	elseif K == "Bowie" then
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/cloudy.digital/main/skins/bowie", true))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/pepsi.club/main/skins/bowie", true))()
 	elseif K == "Diamond Pickaxe" then
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/cloudy.digital/main/skins/diamondpickaxe", true))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/pepsi.club/main/skins/diamondpickaxe", true))()
 	elseif K == "Classic" then
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/cloudy.digital/main/skins/classic", true))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/pepsi.club/main/skins/classic", true))()
 	elseif K == "Valor" then
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/cloudy.digital/main/skins/valorknife", true))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/pepsi.club/main/skins/valorknife", true))()
 	elseif K == "Hook" then
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/cloudy.digital/main/skins/hookknife", true))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/pepsi.club/main/skins/hookknife", true))()
 	end
 end)
 
