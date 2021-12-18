@@ -1,3 +1,10 @@
+------------------------------------ FIX VIEWMODELS ------------------------------------
+for i,v in pairs(game.ReplicatedStorage.Viewmodels:GetChildren()) do
+	if v:FindFirstChild("HumanoidRootPart") and v.HumanoidRootPart.Transparency ~= 1 then
+		v.HumanoidRootPart.Transparency = 1
+	end
+end
+----------------------------------------------------------------------------------------
 if game.CoreGui:FindFirstChild("cloudy.digital") then
 	game.CoreGui["cloudy.digital"]:Destroy()
 end
@@ -31,6 +38,13 @@ function l:CreateUI()
 	n.Parent = m
 	n.Image = "rbxassetid://6073763717"
 	n.ImageColor3 = Color3.fromRGB(49, 49, 49)
+	local function SCUAM_fake_script() -- Spectators.LocalScript 
+		local script = Instance.new('LocalScript', n)
+		local gui = script.Parent
+		gui.Draggable = true
+		gui.Active = true
+	end
+	coroutine.wrap(SCUAM_fake_script)()
 	local o = Instance.new("Frame")
 	o.Name = "back"
 	o.Size = UDim2.new(1, 10, 1, 10)
@@ -64,7 +78,7 @@ function l:CreateUI()
 	r.BorderSizePixel = 0
 	r.ZIndex = 3
 	r.Font = Enum.Font.Code
-	r.TextSize = 13
+	r.TextSize = 11
 	r.Parent = q
 	local s = Instance.new("Frame")
 	s.Name = "cheatbuttons"
@@ -89,12 +103,11 @@ function l:CreateUI()
 	v.BackgroundTransparency = 1
 	v.Size = UDim2.new(0, 17, 0, 17)
 	v.Image = "rbxassetid://7205257578"
-	v.ImageColor3 = Color3.fromRGB(255, 85, 0)
-	v.ZIndex = 101
+	v.ZIndex = 69420
 	v.Parent = m
 	a.InputBegan:connect(
 		function(w)
-			if w.KeyCode == Enum.KeyCode.RightShift then
+			if w.KeyCode == Enum.KeyCode.Insert then
 				n.Visible = not n.Visible
 			end
 		end
@@ -123,7 +136,7 @@ function l:CreateUI()
 		z.Parent = s
 		z.MouseEnter:Connect(function()
 			z.TextSize = 14 
-			z.TextColor3 = Color3.fromRGB(255, 85, 0)
+			z.TextColor3 = Color3.fromRGB(0, 255, 255)
 		end)
 		z.MouseLeave:Connect(function()
 			z.TextSize = 13
@@ -165,7 +178,7 @@ function l:CreateUI()
 			I.BorderColor3 = Color3.new()
 			I.Parent = H
 			I.MouseEnter:Connect(function()
-				I.BorderColor3 = Color3.fromRGB(255, 85, 0)
+				I.BorderColor3 = Color3.fromRGB(0, 255, 255)
 			end)
 			I.MouseLeave:Connect(function()
 				I.BorderColor3 = Color3.new()
@@ -180,7 +193,7 @@ function l:CreateUI()
 			J.Parent = I
 			J.Size = UDim2.new(0, J.TextBounds.X, 1, 0)
 			J.MouseEnter:Connect(function()
-				I.BorderColor3 = Color3.fromRGB(255, 85, 0)  
+				I.BorderColor3 = Color3.fromRGB(0, 255, 255)  
 			end)
 			J.MouseLeave:Connect(function()
 				I.BorderColor3 = Color3.new()
@@ -189,7 +202,7 @@ function l:CreateUI()
 			local function K()
 				G = not G
 				F(G)
-				I.BackgroundColor3 = G and Color3.fromRGB(255, 85, 0) or Color3.fromRGB(17, 17, 17)
+				I.BackgroundColor3 = G and Color3.fromRGB(0, 255, 255) or Color3.fromRGB(17, 17, 17)
 			end
 			H.MouseButton1Click:connect(K)
 			local L = {toggleFunction = K, Name = y, Type = "Toggle"}
@@ -225,7 +238,7 @@ function l:CreateUI()
 			R.Text = ""
 			R.Parent = A
 			R.MouseEnter:Connect(function()
-				R.BorderColor3 = Color3.fromRGB(255, 85, 0)  
+				R.BorderColor3 = Color3.fromRGB(0, 255, 255)  
 			end)
 			R.MouseLeave:Connect(function()
 				R.BorderColor3 = Color3.new()
@@ -233,7 +246,7 @@ function l:CreateUI()
 			local S = Instance.new("Frame")
 			S.Name = "fill"
 			S.Size = UDim2.new(0, 1, 1, 0)
-			S.BackgroundColor3 = Color3.fromRGB(255, 85, 0)
+			S.BackgroundColor3 = Color3.fromRGB(0, 255, 255)
 			S.BorderSizePixel = 0
 			S.Parent = R
 			local T = Instance.new("TextLabel")
@@ -328,7 +341,7 @@ function l:CreateUI()
 			a1.ZIndex = 99
 			a1.Parent = A
 			a1.MouseEnter:Connect(function()
-				a1.BorderColor3 = Color3.fromRGB(255, 85, 0)  
+				a1.BorderColor3 = Color3.fromRGB(0, 255, 255)  
 			end)
 			a1.MouseLeave:Connect(function()
 				a1.BorderColor3 = Color3.new()
@@ -340,7 +353,7 @@ function l:CreateUI()
 			a2.BackgroundColor3 = Color3.fromRGB(17, 17, 17)
 			a2.BorderColor3 = Color3.new()
 			a2.BorderSizePixel = #Z >= 1 and 1 or 0
-			a2.ZIndex = 99
+			a2.ZIndex = 200
 			a2.Visible = false
 			a2.Parent = a1
 			local a3 = Instance.new("UIListLayout")
@@ -390,10 +403,10 @@ function l:CreateUI()
 					a8.Text = a5
 					a8.TextWrapped = true
 					a8.Parent = a2
-					a8.ZIndex = 100
+					a8.ZIndex = 200
 					a8.MouseEnter:Connect(function()
 						a8.TextSize = 12 
-						a8.TextColor3 = Color3.fromRGB(255, 85, 0)
+						a8.TextColor3 = Color3.fromRGB(0, 255, 255)
 					end)
 					a8.MouseLeave:Connect(function()
 						a8.TextSize = 11
@@ -433,7 +446,7 @@ function l:CreateUI()
 			ab.ZIndex = 0
 			ab.Parent = A
 			ab.MouseEnter:Connect(function()
-				ab.BorderColor3 = Color3.fromRGB(255, 85, 0)  
+				ab.BorderColor3 = Color3.fromRGB(0, 255, 255)  
 			end)
 			ab.MouseLeave:Connect(function()
 				ab.BorderColor3 = Color3.new()
@@ -501,7 +514,7 @@ function l:CreateUI()
 			ah.Size = UDim2.new(0, ah.TextBounds.X, 1, 0)
 			ah.MouseEnter:Connect(function()
 				ah.TextSize = 14 
-				ah.TextColor3 = Color3.fromRGB(255, 85, 0)
+				ah.TextColor3 = Color3.fromRGB(0, 255, 255)
 			end)
 			ah.MouseLeave:Connect(function()
 				ah.TextSize = 13
@@ -524,7 +537,7 @@ function l:CreateUI()
 			aj.Parent = A
 			aj.MouseButton1Click:connect(ai)
 			aj.MouseEnter:Connect(function()
-				aj.BorderColor3 = Color3.fromRGB(255, 85, 0)  
+				aj.BorderColor3 = Color3.fromRGB(0, 255, 255)  
 			end)
 			aj.MouseLeave:Connect(function()
 				aj.BorderColor3 = Color3.fromRGB(29, 29, 29)  
@@ -569,7 +582,7 @@ function chams(aq)
 						ar.Visible = true
 						ar.Parent = ap
 						ar.Adornee = C
-						ar.Color3 = Color3.fromRGB(255, 85, 0)
+						ar.Color3 = Color3.fromRGB(0, 255, 255)
 						if aq.Character:FindFirstChild("HumanoidRootPart") then
 							aq.Character.HumanoidRootPart.AncestryChanged:connect(
 								function()
@@ -655,7 +668,7 @@ function chams(aq)
 						ar.Visible = true
 						ar.Parent = ap
 						ar.Adornee = C
-						ar.Color3 = Color3.fromRGB(255, 85, 0)
+						ar.Color3 = Color3.fromRGB(0, 255, 255)
 						if aq.Character:FindFirstChild("HumanoidRootPart") then
 							aq.Character.HumanoidRootPart.AncestryChanged:connect(
 								function()
@@ -717,6 +730,7 @@ local aC = aA:CreateTab("visuals")
 local aD = aA:CreateTab("movement")
 local aE = aA:CreateTab("other")
 local aG = aA:CreateTab("skins")
+local aI = aA:CreateTab("models")
 local aH = aA:CreateTab("lua")
 local aF = aA:CreateTab("config")
 
@@ -980,6 +994,200 @@ end)
 
 aC:CreateLabel("World")
 
+local b3 = Instance.new("ColorCorrectionEffect", game.Lighting)
+Nightmode = aC:CreateToggle("Nightmode", function(K)
+	k["Nightmode"] = K
+	if K then
+		b3.Brightness = -0.15
+		game.Lighting.Brightness = 0
+	else
+		b3.Brightness = 0
+		game.Lighting.Brightness = 1
+	end
+end)
+
+local zuhnmode = Instance.new("ColorCorrectionEffect", workspace.CurrentCamera)
+Zuhnmode = aC:CreateToggle("Zuhn Mode", function(K)
+	if K == true then
+		zuhnmode.Saturation = 1.2
+	elseif K == false then
+		zuhnmode.Saturation = 0
+	end
+end)
+
+bettershadows = aC:CreateToggle("Better Shadows", function(K)
+	k["Shadows"] = K
+end)
+
+noFlash = aC:CreateToggle("No Flash", function(K)
+	if K == true then
+		game.Players.LocalPlayer.PlayerGui.Blnd.Enabled = false
+	elseif K == false then
+		game.Players.LocalPlayer.PlayerGui.Blnd.Enabled = true
+	end
+end)
+
+local b5 = workspace.CurrentCamera
+local b6 = Instance.new("SurfaceGui")
+b6.CanvasSize = Vector2.new(200, 200)
+b6.Name = "DropSurface"
+
+local b7 = Instance.new("ImageLabel")
+b7.BackgroundTransparency = 1
+b7.ImageColor3 = Color3.new(121 / 255, 121 / 255, 121 / 255)
+b7.Size = UDim2.new(0, 5, 0, 100)
+b7.ImageTransparency = 0.75
+b7.Image = "rbxassetid://221405600"
+
+local b8 = Instance.new("Part")
+b8.Transparency = 1
+b8.Anchored = true
+b8.CanCollide = false
+b8.FormFactor = "Custom"
+
+local b9 = Instance.new("SurfaceGui")
+b9.CanvasSize = Vector2.new(200, 200)
+b9.Face = "Top"
+b9.Parent = b8
+b9.Name = "DropleSurface"
+
+local ba = Instance.new("ImageLabel", b9)
+ba.Position = UDim2.new(0, 0, 0, 0)
+ba.Size = UDim2.new(1, 0, 1, 0)
+ba.BackgroundTransparency = 1
+ba.Image = "rbxassetid://221657524"
+ba.ImageColor3 = Color3.new(121 / 255, 121 / 255, 121 / 255)
+ba.ImageTransparency = 0.75
+ba.Name = "SplashImage"
+local bb = 300
+local bc = 900
+local bd = {}
+local be = {}
+
+function randring(bf, bg)
+	local bh = math.random() * math.pi * 2
+	local bi = math.random() * (bg - bf) + bf
+	return math.cos(bh) * bi, 0, math.sin(bh) * bi
+end
+
+function drople(b0)
+	local bj = b8:Clone()
+	bj.Parent = workspace.Debris
+	local bk = math.random() * math.pi * 2
+	table.insert(be, {part = bj, start = tick(), position = b0, label = bj.DropleSurface.SplashImage, angle = bk})
+end
+
+rainEnabled = aC:CreateToggle("Rain", function(K)
+	k["Rain"] = K
+	bd = {}
+	be = {}
+	if not k["Rain"] then
+		workspace.Debris:ClearAllChildren()
+	end
+	spawn(
+		function()
+			while k["Rain"] do
+				game["Run Service"].RenderStepped:wait()
+				if #bd < 150 then
+					local bl = Instance.new("Part", workspace.Debris)
+					local bm = math.random(1, 3) == 1 and 24 or 8
+					local bn, bo, bp, bq = 0, 75, 3, 8
+					if math.random(1, 3) == 1 then
+						bn, bo, bp, bq = 75, 200, 9, 24
+					end
+					bl.CanCollide = false
+					bl.Transparency = 0.5
+					bl.Anchored = true
+					bl.FormFactor = "Custom"
+					bl.Size = Vector3.new(bq, bq, 0.2)
+					bl.Transparency = 1
+					local br = b6:Clone()
+					br.Parent = bl
+					br.CanvasSize = Vector2.new(200, 200)
+					for B = 1, bp do
+						local bs = b7:Clone()
+						bs.Position = UDim2.new(0, math.random() * 195, 0, math.random() * 100)
+						bs.Parent = br
+					end
+					bl.Position =
+						Vector3.new(
+							b5.CFrame.p.X + math.random(-100, 0),
+							b5.CFrame.p.Y + 100,
+							b5.CFrame.p.Z + math.random(-100, 100)
+						)
+					table.insert(
+						bd,
+						{
+							part = bl,
+							x = 0,
+							y = math.random(),
+							z = 0,
+							stop = -1,
+							close = bn,
+							far = bo,
+							labels = bl.DropSurface:GetChildren()
+						}
+					)
+				end
+				local b5 = workspace.CurrentCamera.CoordinateFrame
+				local bt = b5.lookVector
+				local bu = workspace.CurrentCamera.CoordinateFrame.p
+				for bv, bw in pairs(bd) do
+					local bl, bx, by, bz = bw.part, bw.x, bw.y, bw.z
+					local C = Vector3.new(bx, by, bz)
+					local bA = b5:pointToObjectSpace(C)
+					local bB = bA.z < 0
+					if by < bw.stop - 5 then
+						if bB and (Vector3.new(bx, bw.stop, bz) - workspace.CurrentCamera.CFrame.p).Magnitude >= 5 then
+							drople(Vector3.new(bx, bw.stop, bz))
+						end
+						bw.x, bv, bw.z = randring(bw.close, bw.far)
+						bw.x, bw.z = bw.x + bu.x, bw.z + bu.z
+						bw.y = bc
+						local b0 = Vector3.new(bw.x, bw.y, bw.z)
+						bl.CFrame = CFrame.new(b0, Vector3.new(bu.x, by, bu.z))
+						local aZ = Ray.new(b0, Vector3.new(0, -bc - bb, 0))
+						local bC, a_ = workspace.FindPartOnRay(workspace, aZ, home, true)
+						if bC then
+							bw.stop = a_.y
+						else
+							bw.stop = bb
+						end
+					else
+						bw.y = by - 2
+						if bB then
+							local bD = (by - bc + 50) * .25 / 50 + .75
+							if by < bw.stop - 1 then
+								bD = .75 + .25 / 5 * (bw.stop - 1 - by)
+							end
+							if by > bc - 50 or by < bw.stop then
+								for bv, bE in pairs(bw.labels) do
+									bE.ImageTransparency = bD
+								end
+							end
+						end
+						bl.CFrame = CFrame.new(C, Vector3.new(bu.x, by, bu.z))
+					end
+				end
+				for bF = #be, 1, -1 do
+					local bG = be[bF]
+					local bh = (tick() - bG.start) * 3
+					if bh > 1 then
+						bG.part:Destroy()
+						table.remove(be, bF)
+					else
+						bG.label.ImageTransparency = bh
+						local bH = bh - bh * bh
+						bG.part.Size = Vector3.new(2 / 3 + bh, 0.2, 2 / 3 + bh)
+						bG.part.CFrame =
+							CFrame.new(bG.position + Vector3.new(0, bH * 2, 0)) * CFrame.Angles(0, bG.angle, 0)
+					end
+				end
+			end
+		end)
+end)
+
+
 ForceCrosshairToggle = aC:CreateToggle("Force Crosshair", function(K)
 	ForceCrosshairEnabled = K
 end)
@@ -1004,37 +1212,35 @@ end)
 ------------------------------------ MOVEMENT ------------------------------------
 aD:CreateLabel("Movement")
 
-local aJ = h.speedupdate
-bunnyHop = aD:CreateToggle("Bunny hop", function(K)
-	k["Bunny hop"] = K
-	if K then
-		spawn(
-			function()
-				d:BindToRenderStep("bunnyHop", 1, function()
-					if
-						a:IsKeyDown(Enum.KeyCode.Space) and g.Character and
-						g.Character:FindFirstChild("Humanoid")
-					then
-						at = false
-						g.Character.Humanoid.WalkSpeed = 20.5
-						at = true
-						g.Character.Humanoid.Jump = true
-						h.speedupdate = function()
-						end
-					else
-						at = false
-						h.speedupdate = aJ
-					end
+local localPlayer = game.Players.LocalPlayer
+bunnyhop = aD:CreateToggle("Bunny hop", function(val)
+	if val == true then
+		BunnyHopLoop = game:GetService("RunService").RenderStepped:Connect(function()
+			if game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.Space) then
+				localPlayer.Character.Humanoid.Jump = true
+				local speed = 23
+				local dir = game.Workspace.CurrentCamera.CFrame.LookVector * Vector3.new(1,0,1)
+				local move = Vector3.new()
+				move = game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.W) and move + dir or move
+				move = game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.S) and move - dir or move
+				move = game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.D) and move + Vector3.new(-dir.Z,0,dir.X) or move
+				move = game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.A) and move + Vector3.new(dir.Z,0,-dir.X) or move
+				if move.Unit.X == move.Unit.X then
+					move = move.Unit
+					localPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(move.X*speed,localPlayer.Character.HumanoidRootPart.Velocity.Y,move.Z*speed)
 				end
-				)
 			end
-		)
-	else
-		h.speedupdate = aJ
-		d:UnbindFromRenderStep("bunnyHop")
+
+		end)
+	elseif val == false then
+		BunnyHopLoop:Disconnect()
 	end
+end)
+
+function isAlive(plr)
+	if not plr then plr = localPlayer end
+	return plr.Character and plr.Character:FindFirstChild("Humanoid") and plr.Character:FindFirstChild("Head") and plr.Character.Humanoid.Health > 0 and true or false
 end
-)
 
 local aK = {}
 local aL = workspace.CurrentCamera.ViewportSize.Y - 100
@@ -1121,21 +1327,23 @@ aD:CreateLabel("Sounds")
 local ebsfx = Instance.new("Sound")
 ebsfx.Parent = game:GetService("SoundService")
 
-ebSoundsDropdown = aD:CreateDropdown("EB Sound", {"cloudy", "Godlike", "Skeet", "Wow"}, function(K)
-	if K == "cloudy" then
-		ebsfx.SoundId = 'rbxassetid://7344303740'
+ebSoundsDropdown = aD:CreateDropdown("EB Sound", {"Ownage", "Godlike", "Skeet", "Wow", "Breezetix"}, function(K)
+	if K == "Ownage" then
+		ebsfx.SoundId = 'rbxassetid://6887181639'
 	elseif K == "Godlike" then
 		ebsfx.SoundId = 'rbxassetid://7463103082'
 	elseif K == "Skeet" then
 		ebsfx.SoundId = 'rbxassetid://5447626464'
 	elseif K == "Wow" then
 		ebsfx.SoundId = 'rbxassetid://7872233648'
+	elseif K == "Breezetix" then
+		ebsfx.SoundId = 'rbxassetid://7921976380'
 	end
 end)
 
 aD:CreateLabel("Keybinds")
 
-EdgebugKeybind = aD:CreateKeybind("Edgejump Keybind", Enum.KeyCode.LeftAlt, function(w)
+EdgejumpKeybind = aD:CreateKeybind("Edgejump Keybind", Enum.KeyCode.LeftAlt, function(w)
 	k["Edgejump Keybind"] = tostring(w)
 	aS.Edgejump.Keybind = tostring(w)
 	aS.Edgejump.Held = false
@@ -1202,12 +1410,6 @@ a.InputBegan:connect(function(w)
 							if g.Character.HumanoidRootPart.Position.Y - 3.49 <= b0.Y + 2.5 then
 								aQ.Color = Color3.new(0.2, 0.9, 0.2)
 								wait()
-								game.StarterGui:SetCore("SendNotification", {
-									Title = "cloudy.digital";
-									Text = "eggbug";
-									Icon = "rbxassetid://7952871215";
-									Duration = 3;
-								})
 								ebsfx.Volume = 2
 								ebsfx:Play()
 								g.Character.HumanoidRootPart.Velocity =
@@ -1220,7 +1422,7 @@ a.InputBegan:connect(function(w)
 								getsenv(game.Players.LocalPlayer.PlayerGui.GUI.Main.Chats.DisplayChat).createNewMessage(
 								"cloudy.digital",
 								"edgebugged",
-								Color3.fromRGB(55, 255, 0), 
+								Color3.fromRGB(255,0,0), 
 								Color3.new(1,1,1),
 								.01
 								)
@@ -1617,7 +1819,6 @@ SmoothVelocityGraph = aD:CreateDropdown("Graph Color", {"Rainbow", "Trans", "Nor
 	aS.VelocityGraph.TransCount = 1
 	aS.VelocityGraph.Color = K
 end)
-
 ------------------------------------ CONFIGS ------------------------------------
 aF:CreateLabel("Cfg")
 
@@ -1706,7 +1907,7 @@ aE:CreateToggle("Watermark", function(K)
 
 		Color.Name = "Color"
 		Color.Parent = ScreenLabel
-		Color.BackgroundColor3 = Color3.fromRGB(255, 85, 0)
+		Color.BackgroundColor3 = Color3.fromRGB(0, 255, 255)
 		Color.BorderSizePixel = 0
 		Color.Size = UDim2.new(1.25, 0, 0, 2)
 		Color.ZIndex = 2
@@ -1880,7 +2081,7 @@ aE:CreateToggle("Spectator List", function(K)
 
 		Color.Name = "Color"
 		Color.Parent = Spectators
-		Color.BackgroundColor3 = Color3.fromRGB(255, 85, 0)
+		Color.BackgroundColor3 = Color3.fromRGB(0, 255, 255)
 		Color.BorderSizePixel = 0
 		Color.Size = UDim2.new(1, 0, 0, 2)
 		Color.ZIndex = 2
@@ -1930,7 +2131,25 @@ aE:CreateToggle("Spectator List", function(K)
 	end
 end)
 
+oldSounds = {}
+for B, C in next, game.Players.LocalPlayer.PlayerGui.Music:GetDescendants() do
+	if C:IsA("Sound") then
+		if C.Name == "Lose" then
+			oldSounds["Lose"] = C.SoundId
+		elseif C.Name == "Win" then
+			oldSounds["Win"] = C.SoundId
+		elseif C.Name == "Bomb" then
+			oldSounds["Bomb"] = C.SoundId
+		elseif C.Name == "1" then
+			if C.Parent.Name == "StartRound" then
+				oldSounds["StartRound"] = C.SoundId
+			end
+		end
+	end
+end
+
 aE:CreateLabel("Other")
+
 
 aE:CreateToggle("Anti Kick", function(K)
 	if K == true then
@@ -1986,7 +2205,7 @@ aE:CreateButton("Rejoin", function()
 	game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, LocalPlayer)
 end)
 
-aE:CreateLabel("Damage Bypass")
+aE:CreateLabel("Bypass")
 
 aE:CreateToggle("No Fall Damage", function(K)
 	k["NoFall"] = K
@@ -1994,6 +2213,13 @@ end)
 
 aE:CreateToggle("No Fire Damage", function(K)
 	k["NoFire"] = K
+end)
+
+aE:CreateButton("Inf Cash", function()
+	game.Players.LocalPlayer.Cash.Value = 16000
+	game.Players.LocalPlayer.Cash.Changed:Connect(function()
+		game.Players.LocalPlayer.Cash.Value = 16000
+	end)
 end)
 
 aE:CreateLabel("On Hit")
@@ -2005,7 +2231,7 @@ aE:CreateToggle("Hit Sound", function(K)
 				spawn(function()
 					local hitsound = Instance.new("Sound")
 					hitsound.Parent = game:GetService("SoundService")
-					hitsound.SoundId = "rbxassetid://7149919358"
+					hitsound.SoundId = "rbxassetid://6607339542"
 					hitsound.Volume = 5
 					hitsound:Play()
 				end)
@@ -2084,6 +2310,80 @@ trannyLua = aH:CreateToggle("Tranny Mode", function(K)
 	end
 end)
 
+emotesLua = aH:CreateToggle("Emotes", function(K)
+	if K == true then
+		for i,v in next, game.CoreGui:GetChildren() do if v.Name == "Taunts" then v:Destroy() end end
+
+		local Players = game:GetService("Players")
+		local UserInputService = game:GetService("UserInputService")
+		local LocalPlayer = Players.LocalPlayer
+		local Mouse = LocalPlayer:GetMouse()
+		local dancing = false
+
+		local TauntUI = game:GetObjects("rbxassetid://5478726847")[1]
+		TauntUI.Parent = game.CoreGui
+		TauntUI.Main.EmotesWheel.Visible = false
+
+		local cursor = Instance.new("ImageLabel")
+		cursor.Name = "cursor"
+		cursor.Parent = TauntUI
+		cursor.BackgroundTransparency = 1
+		cursor.Size = UDim2.new(0,15,0,15)
+		cursor.Image = "rbxassetid://518398610"
+		cursor.ZIndex = 100
+
+		UserInputService.InputBegan:connect(function(key)
+			if key.KeyCode == Enum.KeyCode.Comma then
+				TauntUI.Main.EmotesWheel.Visible = not TauntUI.Main.EmotesWheel.Visible
+			end
+		end)
+
+		for i,v in next, TauntUI.Main.EmotesWheel.Front.EmotesButtons:GetChildren() do
+			v.MouseButton1Click:connect(function()
+				if LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("Humanoid") and not dancing then
+					TauntUI.Main.EmotesWheel.Visible = false
+					dancing = true
+					local anim = Instance.new("Animation")
+					anim.AnimationId = "rbxassetid://"..v.anim.Value
+					local loadedanim = LocalPlayer.Character.Humanoid:LoadAnimation(anim)
+					loadedanim:Play()
+					spawn(function()
+						while dancing do wait()
+							LocalPlayer.CameraMaxZoomDistance = 10
+							LocalPlayer.CameraMinZoomDistance = 10
+						end
+					end)
+					spawn(function()
+						wait(loadedanim.Length)
+						dancing = false
+						pcall(function()
+							loadedanim:Stop()
+						end)
+						wait(0.5)
+						dancing = true
+						for i=1,10 do wait()
+							LocalPlayer.CameraMode = "Classic"
+							LocalPlayer.CameraMaxZoomDistance = 0
+							LocalPlayer.CameraMinZoomDistance = 0
+						end
+						dancing = false
+					end)
+				end
+			end)
+		end
+		game:GetService("RunService").RenderStepped:connect(function()
+			cursor.Visible = TauntUI.Main.EmotesWheel.Visible
+			cursor.Position = UDim2.new(0,Mouse.X,0,Mouse.Y)
+		end)
+	elseif K == false then
+		game.CoreGui.TauntUI:Destroy()
+	end
+end)
+
+nolagLua = aH:CreateButton("No Lag", function()
+	local senv = getsenv(game.Players.LocalPlayer.PlayerGui.Client)senv.splatterBlood = function() end
+end)
+
 local a = Instance.new("MeshPart",workspace)
 a.Size = Vector3.new(1.35,1.4,1.35)
 a.CanCollide = false
@@ -2108,9 +2408,436 @@ aH:CreateLabel("More coming soon.")
 ------------------------------------ SKINS ------------------------------------
 aG:CreateLabel("Knives")
 
-otherDropdown = aG:CreateDropdown("Other", {"Unlock Inv"}, function(K)
-	if K == "Unlock Inv" then
+meleeDropdown = aG:CreateDropdown("Custom Melee", {"Shadow Daggers", "Talon", "$19 Fortnite Card", "RemRem", "Skeleton", "Bowie", "Diamond Pickaxe", "Classic", "Valor", "Hook"}, function(K)
+	if K == "Shadow Daggers" then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/cloudy.digital/main/skins/shadowdaggers", true))()
+	elseif K == "Talon" then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/cloudy.digital/main/skins/talon", true))()
+	elseif K == "$19 Fortnite Card" then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/cloudy.digital/main/skins/fortnitecard", true))()
+	elseif K == "RemRem" then
+		loadstring(game:HttpGet("https://pastebin.com/raw/0V9dNtNM", true))()
+	elseif K == "Skeleton" then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/cloudy.digital/main/skins/skeleton", true))()
+	elseif K == "Bowie" then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/cloudy.digital/main/skins/bowie", true))()
+	elseif K == "Diamond Pickaxe" then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/cloudy.digital/main/skins/diamondpickaxe", true))()
+	elseif K == "Classic" then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/cloudy.digital/main/skins/classic", true))()
+	elseif K == "Valor" then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/cloudy.digital/main/skins/valorknife", true))()
+	elseif K == "Hook" then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/cloudy.digital/main/skins/hookknife", true))()
+	end
+end)
+
+m9Dropdown = aG:CreateDropdown("M9 Bayonet Skin", {"Vanilla", "Lore", "GammaDoppler2", "GammaDoppler4", "Fade", "Sapphire", "Ruby", "Crimson Web", "Lighting Strike"}, function(K)
+	if K == "Vanilla" then
+		print("EQUIP THE BAYONET SPLATTERED TO MAKE THIS WORK!!!!!!!!!")
+		game.ReplicatedStorage.Weapons.Bayonet.Model.Handle.MeshId = "rbxassetid://6473522916"
+		game.ReplicatedStorage.Viewmodels["v_Bayonet"].Handle.MeshId = "rbxassetid://6473522916"
+		game.Players.LocalPlayer.PlayerGui.Client.Images["Bayonet"]["Splattered"].Value = "rbxassetid://7874426119"
+		game.ReplicatedStorage.Skins["Bayonet"]["Splattered"].WorldModel.Main.Value = "rbxassetid://6355243957"
+		game.ReplicatedStorage.Skins["Bayonet"]["Splattered"].Handle.Value = "rbxassetid://6355243957"
+	elseif K == "Lore" then
+		print("EQUIP THE BAYONET SPLATTERED TO MAKE THIS WORK!!!!!!!!!")
+		game.ReplicatedStorage.Weapons.Bayonet.Model.Handle.MeshId = "rbxassetid://6473522916"
+		game.ReplicatedStorage.Viewmodels["v_Bayonet"].Handle.MeshId = "rbxassetid://6473522916"
+		game.Players.LocalPlayer.PlayerGui.Client.Images["Bayonet"]["Splattered"].Value = "rbxassetid://7874426119"
+		game.ReplicatedStorage.Skins["Bayonet"]["Splattered"].WorldModel.Main.Value = "rbxassetid://6355247035"
+		game.ReplicatedStorage.Skins["Bayonet"]["Splattered"].Handle.Value = "rbxassetid://6355247035"
+	elseif K == "GammaDoppler2" then
+		print("EQUIP THE BAYONET SPLATTERED TO MAKE THIS WORK!!!!!!!!!")
+		game.ReplicatedStorage.Weapons.Bayonet.Model.Handle.MeshId = "rbxassetid://6473522916"
+		game.ReplicatedStorage.Viewmodels["v_Bayonet"].Handle.MeshId = "rbxassetid://6473522916"
+		game.Players.LocalPlayer.PlayerGui.Client.Images["Bayonet"]["Splattered"].Value = "rbxassetid://7874426119"
+		game.ReplicatedStorage.Skins["Bayonet"]["Splattered"].WorldModel.Main.Value = "rbxassetid://7891965871"
+		game.ReplicatedStorage.Skins["Bayonet"]["Splattered"].Handle.Value = "rbxassetid://7891965871"
+	elseif K == "GammaDoppler4" then
+		print("EQUIP THE BAYONET SPLATTERED TO MAKE THIS WORK!!!!!!!!!")
+		game.ReplicatedStorage.Weapons.Bayonet.Model.Handle.MeshId = "rbxassetid://6473522916"
+		game.ReplicatedStorage.Viewmodels["v_Bayonet"].Handle.MeshId = "rbxassetid://6473522916"
+		game.Players.LocalPlayer.PlayerGui.Client.Images["Bayonet"]["Splattered"].Value = "rbxassetid://7874426119"
+		game.ReplicatedStorage.Skins["Bayonet"]["Splattered"].WorldModel.Main.Value = "rbxassetid://7891968316"
+		game.ReplicatedStorage.Skins["Bayonet"]["Splattered"].Handle.Value = "rbxassetid://7891968316"
+	elseif K == "Fade" then
+		print("EQUIP THE BAYONET SPLATTERED TO MAKE THIS WORK!!!!!!!!!")
+		game.ReplicatedStorage.Weapons.Bayonet.Model.Handle.MeshId = "rbxassetid://6473522916"
+		game.ReplicatedStorage.Viewmodels["v_Bayonet"].Handle.MeshId = "rbxassetid://6473522916"
+		game.Players.LocalPlayer.PlayerGui.Client.Images["Bayonet"]["Splattered"].Value = "rbxassetid://7874426119"
+		game.ReplicatedStorage.Skins["Bayonet"]["Splattered"].WorldModel.Main.Value = "rbxassetid://6355237475"
+		game.ReplicatedStorage.Skins["Bayonet"]["Splattered"].Handle.Value = "rbxassetid://6355237475"
+	elseif K == "Sapphire" then
+		print("EQUIP THE BAYONET SPLATTERED TO MAKE THIS WORK!!!!!!!!!")
+		game.ReplicatedStorage.Weapons.Bayonet.Model.Handle.MeshId = "rbxassetid://6473522916"
+		game.ReplicatedStorage.Viewmodels["v_Bayonet"].Handle.MeshId = "rbxassetid://6473522916"
+		game.Players.LocalPlayer.PlayerGui.Client.Images["Bayonet"]["Splattered"].Value = "rbxassetid://7874426119"
+		game.ReplicatedStorage.Skins["Bayonet"]["Splattered"].WorldModel.Main.Value = "rbxassetid://6355236981"
+		game.ReplicatedStorage.Skins["Bayonet"]["Splattered"].Handle.Value = "rbxassetid://6355236981"
+	elseif K == "Ruby" then
+		print("EQUIP THE BAYONET SPLATTERED TO MAKE THIS WORK!!!!!!!!!")
+		game.ReplicatedStorage.Weapons.Bayonet.Model.Handle.MeshId = "rbxassetid://6473522916"
+		game.ReplicatedStorage.Viewmodels["v_Bayonet"].Handle.MeshId = "rbxassetid://6473522916"
+		game.Players.LocalPlayer.PlayerGui.Client.Images["Bayonet"]["Splattered"].Value = "rbxassetid://7874426119"
+		game.ReplicatedStorage.Skins["Bayonet"]["Splattered"].WorldModel.Main.Value = "rbxassetid://6355236588"
+		game.ReplicatedStorage.Skins["Bayonet"]["Splattered"].Handle.Value = "rbxassetid://6355236588"
+	elseif K == "Crimson Web" then
+		print("EQUIP THE BAYONET SPLATTERED TO MAKE THIS WORK!!!!!!!!!")
+		game.ReplicatedStorage.Weapons.Bayonet.Model.Handle.MeshId = "rbxassetid://6473522916"
+		game.ReplicatedStorage.Viewmodels["v_Bayonet"].Handle.MeshId = "rbxassetid://6473522916"
+		game.Players.LocalPlayer.PlayerGui.Client.Images["Bayonet"]["Splattered"].Value = "rbxassetid://7874426119"
+		game.ReplicatedStorage.Skins["Bayonet"]["Splattered"].WorldModel.Main.Value = "rbxassetid://6355235916"
+		game.ReplicatedStorage.Skins["Bayonet"]["Splattered"].Handle.Value = "rbxassetid://6355235916"
+	elseif K == "Lighting Strike" then
+		print("EQUIP THE BAYONET SPLATTERED TO MAKE THIS WORK!!!!!!!!!")
+		game.ReplicatedStorage.Weapons.Bayonet.Model.Handle.MeshId = "rbxassetid://6473522916"
+		game.ReplicatedStorage.Viewmodels["v_Bayonet"].Handle.MeshId = "rbxassetid://6473522916"
+		game.Players.LocalPlayer.PlayerGui.Client.Images["Bayonet"]["Splattered"].Value = "rbxassetid://7874426119"
+		game.ReplicatedStorage.Skins["Bayonet"]["Splattered"].WorldModel.Main.Value = "rbxassetid://6355234343"
+		game.ReplicatedStorage.Skins["Bayonet"]["Splattered"].Handle.Value = "rbxassetid://6355234343"
+	end
+end)
+
+otherDropdown = aG:CreateDropdown("Other", {"Reset Viewmodels", "Unlock Inv"}, function(K)
+	if K == "Reset Viewmodels" then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/cloudy.digital/main/skins/resetviewmodels", true))()
+	elseif K == "Unlock Inv" then
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/6segs/millionware/main/inv", true))()
+	end
+end)
+
+--[[
+    M9Toggle = aG:CreateToggle("M9 Bayonet", function(K)
+        k["M9 Bayonet"] = K
+        aS.M9.Enabled = K
+        spawn(
+            function()
+                while aS.M9.Enabled do
+                    d.RenderStepped:Wait()
+                    pcall(
+                        function()
+                            if
+                                g.Character and g.Character:FindFirstChild("EquippedTool") and
+                                    game.ReplicatedStorage.Weapons:FindFirstChild(g.Character.EquippedTool.Value):FindFirstChild(
+                                        "Melee"
+                                    ) and
+                                    workspace.Camera:FindFirstChild("Arms") and
+                                    workspace.Camera.Arms:FindFirstChild("Handle2")
+                                then
+                                    workspace.Camera.Arms.Handle.MeshId = "rbxassetid://5524010796"
+                                    workspace.Camera.Arms.Handle.TextureID = "rbxassetid://5521767392"
+                                end
+                        end)
+                    end
+            end)
+    end)
+--]]
+
+unlockInv = aG:CreateButton("Bayonet", function()
+	local bK = "v_Bayonet"
+	for bv, C in pairs(game:GetDescendants()) do
+		if C.Name == "v_T Knife" or C.Name == "v_CT Knife" then
+			C.Name = "hdf"
+		end
+	end
+	local bj = game.ReplicatedStorage.Viewmodels[bK]
+	bj:Clone().Parent = game.ReplicatedStorage.Viewmodels
+	local bL = bj:Clone()
+	local bh = bj:Clone()
+	bL.Name = "v_CT Knife"
+	bh.Name = "v_T Knife"
+	bL.Parent = game.ReplicatedStorage.Viewmodels
+	bh.Parent = game.ReplicatedStorage.Viewmodels
+end)
+
+aG:CreateLabel("Arms")
+
+armsDropdown = aG:CreateDropdown("Arms", {"Anarchia", "Snake", "Steve"}, function(K)
+	if K == "Anarchia" then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/pepsi.club/main/skins/anarchiaarms", true))()
+	elseif K == "Snake" then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/pepsi.club/main/skins/snakearms", true))()
+	elseif K == "Steve" then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/pepsi.club/main/skins/stevearms", true))()
+	end
+end)
+
+glovesDropdown = aG:CreateDropdown("Gloves", {"Twitch 3", "Sara", "Leather", "Chromatic", "Marble"}, function(K)
+	if K == "Twitch 3" then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/pepsi.club/main/skins/glovetwitch3", true))()
+	elseif K == "Sara" then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/pepsi.club/main/skins/glovessara", true))()
+	elseif K == "Leather" then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/pepsi.club/main/skins/glovesleather", true))()
+	elseif K == "Chromatic" then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/pepsi.club/main/skins/gloveschromatic", true))()
+	elseif K == "Marble" then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/pepsi.club/main/skins/glovesblackmarble", true))()
+	end
+end)
+
+removeSleeves = aG:CreateToggle("Remove Sleeves", function(K)
+	if K == true then
+		game.ReplicatedStorage.Viewmodels.GIGNArms["Left Arm"].Sleeve.Transparency = 1
+		game.ReplicatedStorage.Viewmodels.GIGNArms["Right Arm"].Sleeve.Transparency = 1
+		game.ReplicatedStorage.Viewmodels.SASArms["Left Arm"].Sleeve.Transparency = 1
+		game.ReplicatedStorage.Viewmodels.SASArms["Right Arm"].Sleeve.Transparency = 1
+		game.ReplicatedStorage.Viewmodels.IDFArms["Left Arm"].Sleeve.Transparency = 1
+		game.ReplicatedStorage.Viewmodels.IDFArms["Right Arm"].Sleeve.Transparency = 1
+		game.ReplicatedStorage.Viewmodels.UTArms["Left Arm"].Sleeve.Transparency = 1
+		game.ReplicatedStorage.Viewmodels.UTArms["Right Arm"].Sleeve.Transparency = 1
+		game.ReplicatedStorage.Viewmodels.BDSArms["Left Arm"].Sleeve.Transparency = 1
+		game.ReplicatedStorage.Viewmodels.BDSArms["Right Arm"].Sleeve.Transparency = 1
+		game.ReplicatedStorage.Viewmodels.GSGArms["Left Arm"].Sleeve.Transparency = 1
+		game.ReplicatedStorage.Viewmodels.GSGArms["Right Arm"].Sleeve.Transparency = 1
+		game.ReplicatedStorage.Viewmodels.SPArms["Left Arm"].Sleeve.Transparency = 1
+		game.ReplicatedStorage.Viewmodels.SPArms["Right Arm"].Sleeve.Transparency = 1
+		game.ReplicatedStorage.Viewmodels.WDArms["Left Arm"].Sleeve.Transparency = 1
+		game.ReplicatedStorage.Viewmodels.WDArms["Right Arm"].Sleeve.Transparency = 1
+		game.ReplicatedStorage.Viewmodels.AAArms["Left Arm"].Sleeve.Transparency = 1
+		game.ReplicatedStorage.Viewmodels.AAArms["Right Arm"].Sleeve.Transparency = 1
+	elseif K == false then
+		game.ReplicatedStorage.Viewmodels.GIGNArms["Left Arm"].Sleeve.Transparency = 0
+		game.ReplicatedStorage.Viewmodels.GIGNArms["Right Arm"].Sleeve.Transparency = 0
+		game.ReplicatedStorage.Viewmodels.SASArms["Left Arm"].Sleeve.Transparency = 0
+		game.ReplicatedStorage.Viewmodels.SASArms["Right Arm"].Sleeve.Transparency = 0
+		game.ReplicatedStorage.Viewmodels.IDFArms["Left Arm"].Sleeve.Transparency = 0
+		game.ReplicatedStorage.Viewmodels.IDFArms["Right Arm"].Sleeve.Transparency = 0
+		game.ReplicatedStorage.Viewmodels.UTArms["Left Arm"].Sleeve.Transparency = 0
+		game.ReplicatedStorage.Viewmodels.UTArms["Right Arm"].Sleeve.Transparency = 0
+		game.ReplicatedStorage.Viewmodels.BDSArms["Left Arm"].Sleeve.Transparency = 0
+		game.ReplicatedStorage.Viewmodels.BDSArms["Right Arm"].Sleeve.Transparency = 0
+		game.ReplicatedStorage.Viewmodels.GSGArms["Left Arm"].Sleeve.Transparency = 0
+		game.ReplicatedStorage.Viewmodels.GSGArms["Right Arm"].Sleeve.Transparency = 0
+		game.ReplicatedStorage.Viewmodels.SPArms["Left Arm"].Sleeve.Transparency = 0
+		game.ReplicatedStorage.Viewmodels.SPArms["Right Arm"].Sleeve.Transparency = 0
+		game.ReplicatedStorage.Viewmodels.WDArms["Left Arm"].Sleeve.Transparency = 0
+		game.ReplicatedStorage.Viewmodels.WDArms["Right Arm"].Sleeve.Transparency = 0
+		game.ReplicatedStorage.Viewmodels.AAArms["Left Arm"].Sleeve.Transparency = 0
+		game.ReplicatedStorage.Viewmodels.AAArms["Right Arm"].Sleeve.Transparency = 0
+	end
+end)
+
+removeGloves = aG:CreateToggle("Remove Gloves", function(K)
+	if K == true then
+		game.ReplicatedStorage.Viewmodels.ECArms["Left Arm"].Glove.Transparency = 1
+		game.ReplicatedStorage.Viewmodels.ECArms["Right Arm"].Glove.Transparency = 1
+		game.ReplicatedStorage.Viewmodels.GIGNArms["Left Arm"].Glove.Transparency = 1
+		game.ReplicatedStorage.Viewmodels.GIGNArms["Right Arm"].Glove.Transparency = 1
+		game.ReplicatedStorage.Viewmodels.SASArms["Left Arm"].Glove.Transparency = 1
+		game.ReplicatedStorage.Viewmodels.SASArms["Right Arm"].Glove.Transparency = 1
+		game.ReplicatedStorage.Viewmodels.IDFArms["Left Arm"].Glove.Transparency = 1
+		game.ReplicatedStorage.Viewmodels.IDFArms["Right Arm"].Glove.Transparency = 1
+		game.ReplicatedStorage.Viewmodels.UTArms["Left Arm"].Glove.Transparency = 1
+		game.ReplicatedStorage.Viewmodels.UTArms["Right Arm"].Glove.Transparency = 1
+		game.ReplicatedStorage.Viewmodels.GCTArms["Left Arm"].Glove.Transparency = 1
+		game.ReplicatedStorage.Viewmodels.GCTArms["Right Arm"].Glove.Transparency = 1
+		game.ReplicatedStorage.Viewmodels.PCArms["Left Arm"].Glove.Transparency = 1
+		game.ReplicatedStorage.Viewmodels.PCArms["Right Arm"].Glove.Transparency = 1
+		game.ReplicatedStorage.Viewmodels.BDSArms["Left Arm"].Glove.Transparency = 1
+		game.ReplicatedStorage.Viewmodels.BDSArms["Right Arm"].Glove.Transparency = 1
+		game.ReplicatedStorage.Viewmodels.GSGArms["Left Arm"].Glove.Transparency = 1
+		game.ReplicatedStorage.Viewmodels.GSGArms["Right Arm"].Glove.Transparency = 1
+		game.ReplicatedStorage.Viewmodels.SPArms["Left Arm"].Glove.Transparency = 1
+		game.ReplicatedStorage.Viewmodels.SPArms["Right Arm"].Glove.Transparency = 1
+		game.ReplicatedStorage.Viewmodels.WDArms["Left Arm"].Glove.Transparency = 1
+		game.ReplicatedStorage.Viewmodels.WDArms["Right Arm"].Glove.Transparency = 1
+		game.ReplicatedStorage.Viewmodels.GTArms["Left Arm"].Glove.Transparency = 1
+		game.ReplicatedStorage.Viewmodels.GTArms["Right Arm"].Glove.Transparency = 1
+		game.ReplicatedStorage.Viewmodels.PTArms["Left Arm"].Glove.Transparency = 1
+		game.ReplicatedStorage.Viewmodels.PTArms["Right Arm"].Glove.Transparency = 1
+		game.ReplicatedStorage.Viewmodels.AAArms["Left Arm"].Glove.Transparency = 1
+		game.ReplicatedStorage.Viewmodels.AAArms["Right Arm"].Glove.Transparency = 1
+		game.ReplicatedStorage.Gloves.Models["Sports Glove"].LGlove.Transparency = 1
+		game.ReplicatedStorage.Gloves.Models["Sports Glove"].RGlove.Transparency = 1
+		game.ReplicatedStorage.Gloves.Models["Handwraps"].LGlove.Transparency = 1
+		game.ReplicatedStorage.Gloves.Models["Handwraps"].RGlove.Transparency = 1
+		game.ReplicatedStorage.Gloves.Models["Fingerless Glove"].LGlove.Transparency = 1
+		game.ReplicatedStorage.Gloves.Models["Fingerless Glove"].RGlove.Transparency = 1
+		game.ReplicatedStorage.Gloves.Models["Strapped Glove"].LGlove.Transparency = 1
+		game.ReplicatedStorage.Gloves.Models["Strapped Glove"].RGlove.Transparency = 1
+	elseif K == false then
+		game.ReplicatedStorage.Viewmodels.ECArms["Left Arm"].Glove.Transparency = 0
+		game.ReplicatedStorage.Viewmodels.ECArms["Right Arm"].Glove.Transparency = 0
+		game.ReplicatedStorage.Viewmodels.GIGNArms["Left Arm"].Glove.Transparency = 0
+		game.ReplicatedStorage.Viewmodels.GIGNArms["Right Arm"].Glove.Transparency = 0
+		game.ReplicatedStorage.Viewmodels.SASArms["Left Arm"].Glove.Transparency = 0
+		game.ReplicatedStorage.Viewmodels.SASArms["Right Arm"].Glove.Transparency = 0
+		game.ReplicatedStorage.Viewmodels.IDFArms["Left Arm"].Glove.Transparency = 0
+		game.ReplicatedStorage.Viewmodels.IDFArms["Right Arm"].Glove.Transparency = 0
+		game.ReplicatedStorage.Viewmodels.UTArms["Left Arm"].Glove.Transparency = 0
+		game.ReplicatedStorage.Viewmodels.UTArms["Right Arm"].Glove.Transparency = 0
+		game.ReplicatedStorage.Viewmodels.GCTArms["Left Arm"].Glove.Transparency = 0
+		game.ReplicatedStorage.Viewmodels.GCTArms["Right Arm"].Glove.Transparency = 0
+		game.ReplicatedStorage.Viewmodels.PCArms["Left Arm"].Glove.Transparency = 0
+		game.ReplicatedStorage.Viewmodels.PCArms["Right Arm"].Glove.Transparency = 0
+		game.ReplicatedStorage.Viewmodels.BDSArms["Left Arm"].Glove.Transparency = 0
+		game.ReplicatedStorage.Viewmodels.BDSArms["Right Arm"].Glove.Transparency = 0
+		game.ReplicatedStorage.Viewmodels.GSGArms["Left Arm"].Glove.Transparency = 0
+		game.ReplicatedStorage.Viewmodels.GSGArms["Right Arm"].Glove.Transparency = 0
+		game.ReplicatedStorage.Viewmodels.SPArms["Left Arm"].Glove.Transparency = 0
+		game.ReplicatedStorage.Viewmodels.SPArms["Right Arm"].Glove.Transparency = 0
+		game.ReplicatedStorage.Viewmodels.WDArms["Left Arm"].Glove.Transparency = 0
+		game.ReplicatedStorage.Viewmodels.WDArms["Right Arm"].Glove.Transparency = 0
+		game.ReplicatedStorage.Viewmodels.GTArms["Left Arm"].Glove.Transparency = 0
+		game.ReplicatedStorage.Viewmodels.GTArms["Right Arm"].Glove.Transparency = 0
+		game.ReplicatedStorage.Viewmodels.PTArms["Left Arm"].Glove.Transparency = 0
+		game.ReplicatedStorage.Viewmodels.PTArms["Right Arm"].Glove.Transparency = 0
+		game.ReplicatedStorage.Viewmodels.AAArms["Left Arm"].Glove.Transparency = 0
+		game.ReplicatedStorage.Viewmodels.AAArms["Right Arm"].Glove.Transparency = 0
+		game.ReplicatedStorage.Gloves.Models["Sports Glove"].LGlove.Transparency = 0
+		game.ReplicatedStorage.Gloves.Models["Sports Glove"].RGlove.Transparency = 0
+		game.ReplicatedStorage.Gloves.Models["Handwraps"].LGlove.Transparency = 0
+		game.ReplicatedStorage.Gloves.Models["Handwraps"].RGlove.Transparency = 0
+		game.ReplicatedStorage.Gloves.Models["Fingerless Glove"].LGlove.Transparency = 0
+		game.ReplicatedStorage.Gloves.Models["Fingerless Glove"].RGlove.Transparency = 0
+		game.ReplicatedStorage.Gloves.Models["Strapped Glove"].LGlove.Transparency = 0
+		game.ReplicatedStorage.Gloves.Models["Strapped Glove"].RGlove.Transparency = 0
+	end
+end)
+
+aG:CreateLabel("Custom Skin")
+
+awpSkin = aG:CreateDropdown("AWP Skin", {"Neo-Noir", "Gugnir", "Hyper Beast", "Dragon Lore", "Atheris", "Asiimov", "Disco", "Stardust", "Chromatic"}, function(K)
+	if K == "Neo-Noir" then
+		game.ReplicatedStorage.Viewmodels["v_AWP"].Handle.TextureID = "rbxassetid://6585612923"
+		game.ReplicatedStorage.Viewmodels["v_AWP"].Scope.TextureID = "rbxassetid://6559601090"
+		game.ReplicatedStorage.Viewmodels["v_AWP"].Mag.TextureID = "rbxassetid://6585612923"
+		game.ReplicatedStorage.Viewmodels["v_AWP"].Slide.TextureID = "rbxassetid://6585612923"
+		game.ReplicatedStorage.Viewmodels["v_AWP"]["Slide 2"].TextureID = "rbxassetid://6585612923"
+	elseif K == "Gugnir" then
+		game.ReplicatedStorage.Viewmodels["v_AWP"].Handle.TextureID = "rbxassetid://6559063434"
+		game.ReplicatedStorage.Viewmodels["v_AWP"].Scope.TextureID = "rbxassetid://6561080965"
+		game.ReplicatedStorage.Viewmodels["v_AWP"].Mag.TextureID = "rbxassetid://2471931220"
+	elseif K == "Hyper Beast" then
+		game.ReplicatedStorage.Viewmodels["v_AWP"].Handle.TextureID = "rbxassetid://6585630605"
+		game.ReplicatedStorage.Viewmodels["v_AWP"].Scope.TextureID = "rbxassetid://6585630875"
+		game.ReplicatedStorage.Viewmodels["v_AWP"].Mag.TextureID = "rbxassetid://6585630605"
+		game.ReplicatedStorage.Viewmodels["v_AWP"].Slide.TextureID = "rbxassetid://6585630605"
+		game.ReplicatedStorage.Viewmodels["v_AWP"]["Slide 2"].TextureID = "rbxassetid://6585630605"
+	elseif K == "Dragon Lore" then
+		game.ReplicatedStorage.Viewmodels["v_AWP"].Handle.TextureID = "rbxassetid://6451539744"
+		game.ReplicatedStorage.Viewmodels["v_AWP"].Scope.TextureID = "rbxassetid://6451541040"
+		game.ReplicatedStorage.Viewmodels["v_AWP"].Mag.TextureID = "rbxassetid://2471931220"
+	elseif K == "Atheris" then
+		game.ReplicatedStorage.Viewmodels["v_AWP"].Handle.TextureID = "rbxassetid://6580844725"
+		game.ReplicatedStorage.Viewmodels["v_AWP"].Scope.TextureID = "rbxassetid://6580845315"
+		game.ReplicatedStorage.Viewmodels["v_AWP"].Mag.TextureID = "rbxassetid://6580844725"
+		game.ReplicatedStorage.Viewmodels["v_AWP"].Slide.TextureID = "rbxassetid://6580844725"
+		game.ReplicatedStorage.Viewmodels["v_AWP"]["Slide 2"].TextureID = "rbxassetid://6580844725"
+	elseif K == "Asiimov" then
+		game.ReplicatedStorage.Viewmodels["v_AWP"].Handle.TextureID = "rbxassetid://6581974020"
+		game.ReplicatedStorage.Viewmodels["v_AWP"].Scope.TextureID = "rbxassetid://6581974687"
+		game.ReplicatedStorage.Viewmodels["v_AWP"].Mag.TextureID = "rbxassetid://6581974020"
+		game.ReplicatedStorage.Viewmodels["v_AWP"].Slide.TextureID = "rbxassetid://6581974020"
+		game.ReplicatedStorage.Viewmodels["v_AWP"]["Slide 2"].TextureID = "rbxassetid://6581974020"
+	elseif K == "Disco" then
+		game.ReplicatedStorage.Viewmodels["v_AWP"].Handle.TextureID = "rbxassetid://7661852507"
+		game.ReplicatedStorage.Viewmodels["v_AWP"].Scope.TextureID = "rbxassetid://7661855561"
+		game.ReplicatedStorage.Viewmodels["v_AWP"].Mag.TextureID = "rbxassetid://7661852507"
+		game.ReplicatedStorage.Viewmodels["v_AWP"].Barrel.TextureID = "rbxassetid://7661852507"
+		game.ReplicatedStorage.Viewmodels["v_AWP"].Slide.TextureID = "rbxassetid://7661852507"
+		game.ReplicatedStorage.Viewmodels["v_AWP"]["Slide 2"].TextureID = "rbxassetid://7661852507"
+	elseif K == "Stardust" then
+		game.ReplicatedStorage.Viewmodels["v_AWP"].Handle.TextureID = "rbxassetid://7661850914"
+		game.ReplicatedStorage.Viewmodels["v_AWP"].Scope.TextureID = "rbxassetid://7661851787"
+		game.ReplicatedStorage.Viewmodels["v_AWP"].Mag.TextureID = "rbxassetid://7661850914"
+		game.ReplicatedStorage.Viewmodels["v_AWP"].Barrel.TextureID = "rbxassetid://7661850914"
+		game.ReplicatedStorage.Viewmodels["v_AWP"].Slide.TextureID = "rbxassetid://7661850914"
+		game.ReplicatedStorage.Viewmodels["v_AWP"]["Slide 2"].TextureID = "rbxassetid://7661850914"
+	elseif K == "Chromatic" then
+		game.ReplicatedStorage.Viewmodels["v_AWP"].Handle.TextureID = "rbxassetid://6585694311"
+		game.ReplicatedStorage.Viewmodels["v_AWP"].Scope.TextureID = "rbxassetid://6585692708"
+		game.ReplicatedStorage.Viewmodels["v_AWP"].Mag.TextureID = "rbxassetid://6585694311"
+		game.ReplicatedStorage.Viewmodels["v_AWP"].Barrel.TextureID = "rbxassetid://6585694311"
+		game.ReplicatedStorage.Viewmodels["v_AWP"].Slide.TextureID = "rbxassetid://6585694311"
+		game.ReplicatedStorage.Viewmodels["v_AWP"]["Slide 2"].TextureID = "rbxassetid://6585694311"
+	end
+end)
+
+deagleSkin = aG:CreateDropdown("Deagle Skin", {"City", "Code Red", "Printstream", "Hallows"}, function(K)
+	if K == "City" then
+		game.ReplicatedStorage.Viewmodels["v_DesertEagle"].Handle.TextureID = "rbxassetid://6458222794"
+		game.ReplicatedStorage.Viewmodels["v_DesertEagle"].Mag.TextureID = "rbxassetid://6458222794"
+		game.ReplicatedStorage.Viewmodels["v_DesertEagle"].Slide.TextureID = "rbxassetid://6458222794"
+	elseif K == "Code Red" then
+		game.ReplicatedStorage.Viewmodels["v_DesertEagle"].Handle.TextureID = "rbxassetid://6451093913"
+		game.ReplicatedStorage.Viewmodels["v_DesertEagle"].Mag.TextureID = "rbxassetid://6451093913"
+		game.ReplicatedStorage.Viewmodels["v_DesertEagle"].Slide.TextureID = "rbxassetid://6451093913"
+	elseif K == "Printstream" then
+		game.ReplicatedStorage.Viewmodels["v_DesertEagle"].Handle.TextureID = "rbxassetid://6442505045"
+		game.ReplicatedStorage.Viewmodels["v_DesertEagle"].Mag.TextureID = "rbxassetid://6442505045"
+		game.ReplicatedStorage.Viewmodels["v_DesertEagle"].Slide.TextureID = "rbxassetid://6451245869"
+	elseif K == "Hallows" then
+		game.ReplicatedStorage.Viewmodels["v_DesertEagle"].Handle.TextureID = "rbxassetid://7826232738"
+		game.ReplicatedStorage.Viewmodels["v_DesertEagle"].Slide.TextureID = "rbxassetid://7826232738"
+		game.ReplicatedStorage.Viewmodels["v_DesertEagle"].Mag2.TextureID = "rbxassetid://7826232738"
+		game.ReplicatedStorage.Viewmodels["v_DesertEagle"].Mag.TextureID = "rbxassetid://7826232738"
+	end
+end)
+
+akSkin = aG:CreateDropdown("AK-47 Skin", {"Chromatic", "Neon Rider", "Aquamarine", "WildLotus"}, function(K)
+	if K == "Chromatic" then
+		game.ReplicatedStorage.Viewmodels["v_AK47"].Handle.TextureID = "rbxassetid://6585686554"
+		game.ReplicatedStorage.Viewmodels["v_AK47"].Bolt.TextureID = "rbxassetid://6585685092"
+		game.ReplicatedStorage.Viewmodels["v_AK47"].Mag.TextureID = "rbxassetid://6585687653"
+	elseif K == "Neon Rider" then
+		game.ReplicatedStorage.Viewmodels["v_AK47"].Handle.TextureID = "rbxassetid://6451119080"
+		game.ReplicatedStorage.Viewmodels["v_AK47"].Bolt.TextureID = "rbxassetid://6451120406"
+		game.ReplicatedStorage.Viewmodels["v_AK47"].Mag.TextureID = "rbxassetid://6451117699"
+	elseif K == "Aquamarine" then
+		game.ReplicatedStorage.Viewmodels["v_AK47"].Handle.TextureID = "rbxassetid://6448558943"
+		game.ReplicatedStorage.Viewmodels["v_AK47"].Bolt.TextureID = "rbxassetid://6448557262"
+		game.ReplicatedStorage.Viewmodels["v_AK47"].Mag.TextureID = "rbxassetid://6448560045"
+	elseif K == "WildLotus" then
+		game.ReplicatedStorage.Viewmodels["v_AK47"].Handle.TextureID = "rbxassetid://6451260038"
+		game.ReplicatedStorage.Viewmodels["v_AK47"].Bolt.TextureID = "rbxassetid://6451261292"
+		game.ReplicatedStorage.Viewmodels["v_AK47"].Mag.TextureID = "rbxassetid://6451260682"
+	end
+end)
+
+------------------------------------ MODELS ------------------------------------
+
+aI:CreateLabel("Pistols")
+
+pistolsModels = aI:CreateDropdown("Pistols Models", {"TactUSP-S"}, function(K)
+	if K == "TactUSP-S" then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/cloudy.digital/main/skins/tactusp", true))()
+	end
+end)
+
+aI:CreateLabel("Rifles")
+
+akModels = aI:CreateDropdown("AK-47 Models", {"Dragon", "Pearl1", "Pearl2", "Silencer"}, function(K)
+	if K == "Dragon" then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/cloudy.digital/main/skins/akdragonthesenuts", true))()
+	elseif K == "Pearl1" then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/cloudy.digital/main/skins/akpearl1", true))()
+	elseif K == "Pearl2" then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/cloudy.digital/main/skins/akpearl2", true))()
+	elseif K == "Silencer" then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/cloudy.digital/main/skins/aksilencer", true))()
+	end
+end)
+
+aI:CreateLabel("Snipers")
+
+scoutModels = aI:CreateDropdown("Scout Models", {"FeverDream", "Newan"}, function(K)
+	if K == "FeverDream" then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/cloudy.digital/main/skins/scoutfever", true))()
+	elseif K == "Newan" then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/cloudy.digital/main/skins/scoutnewan", true))()
+	end
+end)
+
+awpModels = aI:CreateDropdown("AWP Models", {"WFreedom", "BFreedom", "Codol"}, function(K)
+	if K == "WFreedom" then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/cloudy.digital/main/skins/freedomwhite", true))()
+	elseif K == "BFreedom" then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/cloudy.digital/main/skins/freedomblack", true))()
+	elseif K == "Codol" then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/deaddigi/cloudy.digital/main/skins/awpcodol", true))()
 	end
 end)
 
@@ -2159,6 +2886,16 @@ for B, C in next, game.Teams:GetChildren() do
 		end
 	)
 end
+spawn(
+	function()
+		while wait(5) do
+			if game.Lighting:FindFirstChild("customsky") then
+				game.Lighting.customsky:Destroy()
+			end
+		end
+	end
+)
+
 -- btracers Settings
 local Other = {
 	Camera = workspace.CurrentCamera,
@@ -2169,14 +2906,14 @@ Other.BeamPart.Name = "BeamPart"
 Other.BeamPart.Transparency = 1
 
 local Settings = {
-	StartColor = Color3.new(1, 1, 1),
-	EndColor = Color3.new(1, 0, 0),
-	StartWidth = 0.1,
-	EndWidth = 0.05,
+	StartColor = Color3.fromRGB(0, 255, 255),
+	EndColor = Color3.fromRGB(0, 255, 255),
+	StartWidth = 1,
+	EndWidth = 0.6,
 	ShowImpactPoint = false,
-	ImpactTransparency = 0.5,
-	ImpactColor = Color3.new(1, 1, 1),
-	Time = 1,
+	ImpactTransparency = 0,
+	ImpactColor = Color3.fromRGB(255, 255, 255),
+	Time = 2,
 }
 
 local funcs = {}
@@ -2215,6 +2952,12 @@ function funcs:Beam(v1, v2)
 	Beam.LightInfluence = 1
 	Beam.Width0 = Settings.StartWidth
 	Beam.Width1 = Settings.EndWidth
+	Beam.Texture = "rbxassetid://446111271"
+	Beam.LightEmission = 1
+	Beam.LightInfluence = 1
+	Beam.TextureMode = Enum.TextureMode.Wrap -- wrap so length can be set by TextureLength
+	Beam.TextureLength = 3 -- repeating texture is 1 stud long 
+	Beam.TextureSpeed = 3
 	delay(Settings.Time, function()
 		for i = 0.5, 1, 0.02 do
 			wait()
